@@ -1,0 +1,30 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+    text-align: center;
+}
+
+.header {
+    display:flex;
+    justify-content: space-between;
+    padding:0.8em 0;   
+}
+
+#score {
+    margin-left: 1%;
+}
+
+#time {
+    margin-right: 5%;
+}
+
+.instruct-container {
+    margin: 5% 40%;
+    padding:10px;
+    text-align: center;
+    width:400px;
+}
+
+.instruct-text {
+    word-wrap: break-word;
+}
