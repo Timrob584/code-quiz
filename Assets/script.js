@@ -52,4 +52,8 @@ var quizQuestions = [
     },
     correctAnswer = "1"
 ]
+
+
+document.getElementById("#start").addEventListener("click",() => {
+    console.log("start clicked");
 }
