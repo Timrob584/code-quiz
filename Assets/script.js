@@ -1,59 +1,50 @@
-// Adding questions and answers for the quiz
-var quizQuestions = [
-    {
-        question: "Commonly used data types DO NOT include:",
-        answers: {
-            1. strings
-            2. booleans
-            3. alerts
-            4. numbers
-        },
-        correctAnswer = "3"
-    },
+var startBtn = $("#start");
 
-    {
-        question: "the condition in an if/else statement is enclosed within ___",
-        answers: {
-            1. quotes
-            2. curly brackets
-            3. parentheses
-            4. square brackets
-    },
-    correctAnswer = "3"
-    },
+// Variables for Questions (Can we make this into an array and use that for the .hide?)
+var question1 = $("#Q1");
+var question2 = $("#Q2");
+var question3 = $("#Q3");
+var question4 = $("#Q4");
+var question5 = $("#Q5");
 
-    {
-        question: "Arrays in javascript can be used to store",
-        answers: {
-            1. numbers and strings
-            2. other arrays
-            3. booleans
-            4. all of the above
-    },
-    correctAnswer = "4"
+var instructTitle = $("#instruct-title");
+var instructText = $("#instruct-text");
+var submission = $("#finished");
 
-    {
-        question: "String values must be enclosed within ___ when being assigned to variables",
-        answers: {
-            1. commas
-            2. curly brackets
-            3. quotes
-            4. parentheses
-    },
-    correctAnswer = "3"
+// To hide the questions initially
+question1.hide();
+question2.hide();
+question3.hide();
+question4.hide();
+question5.hide();
+submission.hide();
 
-    {
-        question: "A very useful tool used during development and debugging for printing content to the debugger is",
-        answers: {
-            1. JavaScript
-            2. terminal/bash
-            3. for loops
-            4. console.log
-    },
-    correctAnswer = "1"
-]
+// When 'Start Quiz' is clicked, hide instructions & Show 1st question.
+startBtn.on("click", function () {
+    startBtn.hide();
+    instructTitle.hide();
+    instructText.hide();
+    question1.show();
 
+});
 
-document.getElementById("#start").addEventListener("click",() => {
-    console.log("start clicked");
-}
+// How to add an event listener for each individual answer. Do I have to build the quiz in javascript?
+INSERTELEMENTHERE.on("click", function() {
+    question1.hide();
+    question2.show();
+});
+
+INSERTELEMENTHERE.on("click", function() {
+    question2.hide();
+    question3.show();
+});
+
+INSERTELEMENTHERE.on("click", function() {
+    question3.hide();
+    question4.show();
+});
+
+INSERTELEMENTHERE.on("click", function() {
+    question4.hide();
+    question5.show();
+});

@@ -39,23 +39,6 @@ body {
     border-radius: 5px;
 }
 
-.question {
-    font-size: 30px;
-    margin-bottom: 10px;
-}
-
-.answers {
-    margin-bottom: 20px;
-    text-align: left;
-    display: inline-block;
-    background-color: blue;
-    color: white;
-    text-align: center;
-    
-    border-radius: 5px;
-}
-
-.answers-label {
-    display: block;
-    margin-bottom: 10px;
+#finished {
+   text-align: left; 
 }

@@ -11,7 +11,7 @@
 <body>
     <header class="header">
     <div class="container" id="score">
-        <a href="#">View Highscores</a>
+        <a href="highscores.html">View Highscores</a>
     </div>
     <div class="container" id="time">    
         <p>Time:</p>
@@ -26,7 +26,54 @@
         </p>
         <button type="button" id="start">Start Quiz</button>
     </div>
+    <form id="Q1">
+        <h3>Commonly used data types DO NOT include:</h3>
+        <input type="radio" name="answer" value="a1">strings<br>
+        <input type="radio" name="answer" value="a2">booleans<br>
+        <input type="radio" name="answer" value="a3">alerts<br>
+        <input type="radio" name="answer" value="a4">numbers<br>
+    </form>
+    <form id="Q2">
+        <h3>The condition in an if/else statement is enclosed within ___</h3>
+        <input type="radio" name="answer" value="a1">quotes<br>
+        <input type="radio" name="answer" value="a2">curly brackets<br>
+        <input type="radio" name="answer" value="a3">parentheses<br>
+        <input type="radio" name="answer" value="a4">square brackets<br>
+    </form>
+    <form id="Q3">
+        <h3 class="q-bold">Arrays in javascript can be used to store</h3>
+        <input type="radio" name="answer" value="a1">numbers and strings<br>
+        <input type="radio" name="answer" value="a2">other arrays<br>
+        <input type="radio" name="answer" value="a3">booleans<br>
+        <input type="radio" name="answer" value="a4">all of the above<br>
+    </form>
+    <form id="Q4">
+        <h3>String values must be enclosed within ___ when being assigned to variables</h3>
+        <input type="radio" name="answer" value="a1">commas<br>
+        <input type="radio" name="answer" value="a2">curly brackets<br>
+        <input type="radio" name="answer" value="a3">quotes<br>
+        <input type="radio" name="answer" value="a4">parentheses<br>
+    </form>
+    <form id="Q5">
+        <h3>A very useful tool used during development and debugging for printing content to the debugger is</h3>
+        <input type="radio" name="answer" value="a1">JavaScript<br>
+        <input type="radio" name="answer" value="a2">terminal/bash<br>
+        <input type="radio" name="answer" value="a3">for loops<br>
+        <input type="radio" name="answer" value="a4">console.log<br>
+    </form>
+    <div id="finished">
+        <h3>All done!</h3>
+        <p>Your final score is </p>
+        <form>
+            <input type="text" id="initials" value="">
+            <input type="submit" value="submit">
+        </form>
+    </div>
 </section>    
 </body>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
 <script src="Assets/script.js"></script>
 </html>
