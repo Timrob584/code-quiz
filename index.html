@@ -13,12 +13,12 @@
     <div class="container" id="score">
         <a href="highscores.html">View Highscores</a>
     </div>
-    <div class="container" id="timer">    
-        <p>Time: <span id="time"></span> seconds</p>
+    <div class="container" id="time">    
+        <p>Time: <span id="timer"></span></p>
     </div>
 </header>
 
-<section class="quiz-container">
+<section class="quiz-container" id="contain">
     <div>
         <h1 id="instruct-title">Coding Quiz Challenge</h1>
         <p id="instruct-text">
@@ -26,46 +26,11 @@
         </p>
         <button type="button" id="start">Start Quiz</button>
     </div>
-    <form id="Q1">
-        <h3>Commonly used data types DO NOT include:</h3>
-        <input type="radio" name="answer" value="a1">strings<br>
-        <input type="radio" name="answer" value="a2">booleans<br>
-        <input type="radio" name="answer" value="a3">alerts<br>
-        <input type="radio" name="answer" value="a4">numbers<br>
-    </form>
-    <form id="Q2">
-        <h3>The condition in an if/else statement is enclosed within ___</h3>
-        <input type="radio" name="answer" value="a1">quotes<br>
-        <input type="radio" name="answer" value="a2">curly brackets<br>
-        <input type="radio" name="answer" value="a3">parentheses<br>
-        <input type="radio" name="answer" value="a4">square brackets<br>
-    </form>
-    <form id="Q3">
-        <h3>Arrays in javascript can be used to store</h3>
-        <input type="radio" name="answer" value="a1">numbers and strings<br>
-        <input type="radio" name="answer" value="a2">other arrays<br>
-        <input type="radio" name="answer" value="a3">booleans<br>
-        <input type="radio" name="answer" value="a4">all of the above<br>
-    </form>
-    <form id="Q4">
-        <h3>String values must be enclosed within ___ when being assigned to variables</h3>
-        <input type="radio" name="answer" value="a1">commas<br>
-        <input type="radio" name="answer" value="a2">curly brackets<br>
-        <input type="radio" name="answer" value="a3">quotes<br>
-        <input type="radio" name="answer" value="a4">parentheses<br>
-    </form>
-    <form id="Q5">
-        <h3>A very useful tool used during development and debugging for printing content to the debugger is</h3>
-        <input type="radio" name="answer" value="a1">JavaScript<br>
-        <input type="radio" name="answer" value="a2">terminal/bash<br>
-        <input type="radio" name="answer" value="a3">for loops<br>
-        <input type="radio" name="answer" value="a4">console.log<br>
-    </form>
-    <div id="finished">
+    <div id="submission">
         <h3>All done!</h3>
-        <p>Your final score is </p>
+        <p>Your final score is <span id="score"></span> !</p>
         <form>
-            <input type="text" id="initials" value="">
+            <input type="text" placeholder ="Enter your intitals here" id="initials" value="">
             <input type="submit" value="submit">
         </form>
     </div>

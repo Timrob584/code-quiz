@@ -7,17 +7,6 @@ $('.answer').click(function(){
 
 });
 
-<!-- HTML way of doing the quiz: -->
-
-<form class="Q1">
-        <p>Commonly used data types DO NOT include:</p>
-        <input type="radio" name="answer" value="a1">strings<br>
-        <input type="radio" name="answer" value="a2">booleans<br>
-        <input type="radio" name="answer" value="a3">alerts<br>
-        <input type="radio" name="answer" value="a4">numbers<br>
-    </form>
-
-
 Use the javascript way of building the quiz. Change the answers in the object into an array in "" and seperated with a ,
 
 Use indexes. Set global to start at 0. Use for loop to cycle through questions. 
@@ -31,9 +20,7 @@ Use indexes. Set global to start at 0. Use for loop to cycle through questions.
 Global variable: var currentQuestionIndex = 0;
 
 
-var vurrentQuestion = quizQuestions[currentQuestionIndex]
-
-
+var currentQuestion = quizQuestions[currentQuestionIndex]
 
 
 currentQuestionIndex++
@@ -44,22 +31,18 @@ Local storage can only take a string. Make it into a screen ".join"
 
 Make an empty array. Push object (user's initial, user score) into array. Then store the array.
 
-<!-- Can use this for if answer is correct, pops up text "correct", if answer is wrong, pops up text "wrong" and decreases timer by 10 seconds. -->
-<ElementName>.on("click", function() {
-    if () {
-        $()...
-    else {
-        $()...
-    }    
-    }
-});
 
-<!-- Possible way of adding questions and answers for the quiz in javascript. -->
+<!-- To add the score to the page -->
+$(document).ready(function() {
+    $("#score span").text(score);
+})
+
+<!-- Quiz Questions -->
 var quizQuestions = [
     {
-        question: "Commonly used data types DO NOT include:",
-        answers: [
-           "1. strings",
+        title: "Commonly used data types DO NOT include:",
+        choices: [
+            "1. strings",
             "2. booleans",
             "3. alerts",
             "4. numbers"
@@ -68,43 +51,116 @@ var quizQuestions = [
     },
 
     {
-        question: "the condition in an if/else statement is enclosed within ___",
-        answers: {
-            1. quotes
-            2. curly brackets
-            3. parentheses
-            4. square brackets
-    },
-    correctAnswer = "3"
+        title: "the condition in an if/else statement is enclosed within ___",
+        choices: [
+            "1. quotes",
+            "2. curly brackets",
+            "3. parentheses",
+            "4. square brackets"
+        ],
+        correctAnswer: "3. parentheses"
     },
 
     {
-        question: "Arrays in javascript can be used to store",
-        answers: {
-            1. numbers and strings
-            2. other arrays
-            3. booleans
-            4. all of the above
-    },
-    correctAnswer = "4"
-
+        title: "Arrays in javascript can be used to store",
+        choices: [
+            "1. numbers and strings",
+            "2. other arrays",
+            "3. booleans",
+            "4. all of the above"
+        ],
+        correctAnswer: "4. all of the above"
+    },    
     {
-        question: "String values must be enclosed within ___ when being assigned to variables",
-        answers: {
-            1. commas
-            2. curly brackets
-            3. quotes
-            4. parentheses
+        title: "String values must be enclosed within ___ when being assigned to variables",
+        choices: [
+            "1. commas",
+            "2. curly brackets",
+            "3. quotes",
+            "4. parentheses"
+        ],
+        correctAnswer: "3. quotes"
     },
-    correctAnswer = "3"
-
     {
-        question: "A very useful tool used during development and debugging for printing content to the debugger is",
-        answers: {
-            1. JavaScript
-            2. terminal/bash
-            3. for loops
-            4. console.log
+        title: "A very useful tool used during development and debugging for printing content to the debugger is",
+        choices: [
+            "1. JavaScript",
+            "2. terminal/bash",
+            "3. for loops",
+            "4. console.log"
+        ],
+        correctAnswer: "4. console.log"
     },
-    correctAnswer = "4"
-]
+
+<!-- Variables Needed: -->
+<!-- var startBtn = $("#start"); -->
+<!-- var finished = $("finished"); -->
+var quizContainer = $("#contain");
+var instructTitle = $("#instruct-title");
+var instructText = $("#instruct-text");
+var currentQuestionIndex = 0;
+var score = 0;
+var seconds = 75;
+var penalty = 10;
+var currentQuestions = quizQuestions[currentQuestionIndex];
+var currentChoices = quizQuestions[currentQuestionIndex];
+var ul = document.createElement("ul");
+
+
+
+
+<!-- To hide the submission page at the beginning -->
+$(document).ready(function() {
+    $("#submission").hide();
+});
+
+<!-- To hide the instructions when start quiz button is clicked -->
+$("#start").click(function() {
+    startBtn.hide();
+    instructTitle.hide();
+    instructText.hide();
+});
+
+
+<!-- To add Timer -->
+var interval = setInterval(function(seconds) {
+    document.$("#timer span").innerHTML = seconds + "s";
+
+    if (distance < 0) {
+    clearInterval(interval);
+    window.alert("Time's Up!");
+    }
+}, 1000);    
+
+<!-- To Loop Through Questions & Answers -->
+function generate(currentQuestionIndex) {
+    for (var i = 0; i < quizQuestions.length; i++) {
+        currentQuestions.choices;
+        currentChoices.choices;
+    }
+
+    currentChoices.forEach(function(list) {
+        var choiceList = document.createElement("li");
+        choiceList.textContent = list;
+        quizContainer.appendChild(ul)
+        ul.appendChild(list);
+        list.on("click", (compare));
+        })
+    };
+
+<!-- To Compare Answers -->
+    function compare(e) {
+    var answer = e.target;
+
+    if (answer.matches("li")) {
+        var newDiv = document.createElement("div");
+    }    
+        if (answer.textContent === quizQuestions[currentQuestionIndex].answer) {
+            score++;
+            newDiv.textContent = "Correct!";
+    }    
+        else {
+                seconds = seconds - penalty;
+                newDiv.textContent = "Wrong!";
+            }
+}
