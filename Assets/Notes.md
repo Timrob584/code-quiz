@@ -1,19 +1,48 @@
-# Notes
+Notes
+
+
 <!-- By assigning an 'answer' class to each of the answers, I can get the quiz to go to the next question without a next button. -->
 $('.answer').click(function(){
     next(); 
 
 });
 
-<!-- The 'View Highscores' is a link to a 2nd page. Must make the 2nd page! -->
+<!-- HTML way of doing the quiz: -->
 
-1:09:00 in 5.1 class video (JQuery Click Events)
-1:25:31 in 5.1 class video (JQuery Form Elements)
-2:32:10 in 5.1 class video (JQuery Event Delegation (Show/hide))
+<form class="Q1">
+        <p>Commonly used data types DO NOT include:</p>
+        <input type="radio" name="answer" value="a1">strings<br>
+        <input type="radio" name="answer" value="a2">booleans<br>
+        <input type="radio" name="answer" value="a3">alerts<br>
+        <input type="radio" name="answer" value="a4">numbers<br>
+    </form>
 
-<ElementName>.on("click", function() {
-    alert("AlertText");
-});
+
+Use the javascript way of building the quiz. Change the answers in the object into an array in "" and seperated with a ,
+
+Use indexes. Set global to start at 0. Use for loop to cycle through questions. 
+
+1. create html element. "document.createElement("button")
+2. give button some content. "text-content method" - var.textcontent
+3. have to append it to the page.
+4. For loop for the choices.
+
+
+Global variable: var currentQuestionIndex = 0;
+
+
+var vurrentQuestion = quizQuestions[currentQuestionIndex]
+
+
+
+
+currentQuestionIndex++
+
+spans are good for inputting/manipulating variables without messing up with the text. use for the timer and for the score time in the "finished" div.
+
+Local storage can only take a string. Make it into a screen ".join"
+
+Make an empty array. Push object (user's initial, user score) into array. Then store the array.
 
 <!-- Can use this for if answer is correct, pops up text "correct", if answer is wrong, pops up text "wrong" and decreases timer by 10 seconds. -->
 <ElementName>.on("click", function() {
@@ -29,13 +58,13 @@ $('.answer').click(function(){
 var quizQuestions = [
     {
         question: "Commonly used data types DO NOT include:",
-        answers: {
-            1. strings
-            2. booleans
-            3. alerts
-            4. numbers
-        },
-        correctAnswer = "3"
+        answers: [
+           "1. strings",
+            "2. booleans",
+            "3. alerts",
+            "4. numbers"
+        ],
+        correctAnswer: "3. alerts"
     },
 
     {
