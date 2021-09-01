@@ -7,7 +7,7 @@ body {
 .header {
     display:flex;
     justify-content: space-between;
-    padding:0.8em 0;   
+    padding:0.7em 0;   
 }
 
 #score {
@@ -25,11 +25,11 @@ body {
     width:400px;
 }
 
-.instruct-text {
+.instructText {
     word-wrap: break-word;
 }
 
-#start {
+#startQuiz {
     width: 100px;
     height:20px;
     background-color: blue;
@@ -41,4 +41,8 @@ body {
 
 #submission {
    text-align: left; 
+}
+
+#highScore {
+    font-weight: bold;
 }
