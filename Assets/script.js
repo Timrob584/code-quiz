@@ -5,7 +5,7 @@ var instructTextEl = document.getElementById("instruct-text");
 var submitEl = document.getElementById("submission");
 var startBtnEl = document.getElementById("start");
 var timerEl = document.getElementById("timer");
-timeEl = document.getElementById("time");
+var timeEl = document.getElementById("time");
 var quizQuestionDivEl = document.getElementById("quizQuestionDiv");
 var questionTitleEl = document.getElementById("questionTitle");
 var choiceA = document.getElementById("btn1");
@@ -17,6 +17,9 @@ var finalScoreEl = document.getElementById("final-score");
 var highScoreInitialsEl = document.getElementById("initials");
 var initialsSubmitBtnEl = document.getElementById("initialSubmitBtn");
 var backBtnEl = document.getElementById("back");
+var clearBtnEl = document.getElementById("clear");
+var highScoreNameEl = document.getElementById("name");
+var highScoreScoreEl = document.getElementById("score");
 var currentQuestionIndex = 0;
 var score = 0;
 var seconds = 75;
@@ -132,7 +135,7 @@ function checkAnswer(correctAnswer) {
     } else {
         gameOver();
     }
-}
+};
 
 function chooseA() { 
     checkAnswer(0); 
@@ -168,34 +171,32 @@ function gameOver() {
     var scoreSpan = document.createElement("span");
     finalScoreEl.append(scoreSpan);
     finalScoreEl.append(score);
-}
+};
 
 // To save the initials to local storage
-// function highScore() {
-//     if(highScoreInitialsEl.value === "") {
-//         alert("Please Enter Initials");
-//         return false;
-//     } else{
-//         var savedHighscores = JSON.parse(localStorage.getItem("savedHighScores")) || [];
-//         var currentUser = highScoreInitialsEl.value.trim();
-//         var currentHighScore = {
-//             initials : currentUser,
-//             score : score.textContent
-//         }
-//     }
+function highScore() {
+    if(highScoreInitialsEl.value === "") {
+        alert("Please Enter Initials");
+        return false;
+    } else{
+        var savedHighScores = JSON.parse(localStorage.getItem("savedHighScores")) || [];
+        var currentUser = highScoreInitialsEl.value.trim();
+        var currentHighScore = {
+            initials : currentUser,
+            score : score.textContent
+        };
+    };
+        savedHighScores.push(currentHighScore);
+        localStorage.setItem("savedHighScores", JSON.stringify(savedHighScores));
+        generateHighScores();
+}
+initialsSubmitBtnEl.addEventListener("click", highScore);
 
-//         savedHighScores.push(currentHighcore);
-//         localStorage.setItem("savedHighScores", JSON.stringify(savedHighScores));
-//         generateHighScores();
-// };
-// initialsSubmitBtnEl.addEventListener("click", highScore);
-
-// function generateHighScores() {
-//     displayName.innerHTML = "";
-//     displayScore.innerHTML = "";
-// }
-
-// To go back to quiz
-backBtnEl.addEventListener("click", function() {
-    document.location.href = "https://timrob584.github.io/code-quiz/";
-});
+function generateHighScores() {
+    for (i = 0; i < savedHighScores.length; i++) {
+    var displayName = savedHighScores[i].name;
+    var displayScore = savedHighScores[i].score;
+       highScoreNameEl.append(displayName);
+       highScoreScoreEl.append(displayScore);
+    }
+};
