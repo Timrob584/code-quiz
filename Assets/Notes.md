@@ -164,3 +164,5 @@ function generate(currentQuestionIndex) {
                 newDiv.textContent = "Wrong!";
             }
 }
+
+window.alert
