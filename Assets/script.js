@@ -12,12 +12,16 @@ var choiceA = document.getElementById("btn1");
 var choiceB = document.getElementById("btn2");
 var choiceC = document.getElementById("btn3");
 var choiceD = document.getElementById("btn4");
-var check = document.getElementById("answerCheck");
+var checkEl = document.getElementById("answerCheck");
+var finalScoreEl = document.getElementById("final-score");
+var highScoreInitialsEl = document.getElementById("initials");
+var initialsSubmitBtnEl = document.getElementById("initialSubmitBtn");
+var backBtnEl = document.getElementById("back");
 var currentQuestionIndex = 0;
 var score = 0;
 var seconds = 75;
 var penalty = 10;
-var finalScore = document.getElementById("");
+
 
 //  Quiz Questions
 var quizQuestions = [
@@ -83,6 +87,8 @@ startBtnEl.addEventListener("click", function() {
     startBtnEl.style.display = "none";
     instructTitleEl.style.display = "none";
     instructTextEl.style.display = "none";
+
+
 // To add timer
     timerEl.textContent = seconds;
     var timerInterval = setInterval(function() {
@@ -110,37 +116,38 @@ function nextQuestion() {
     choiceD.textContent = quizQuestions[currentQuestionIndex].choices[3];
 }
 
-function check(answer) {
-    if (quizQuestions[currentQuestionIndex].correctAnswer === quizQuestions[currentQuestionIndex].choices[answer]) {
+// To check the user's choice against the correct answer
+function checkAnswer(correctAnswer) {
+    if (quizQuestions[currentQuestionIndex].correctAnswer === quizQuestions[currentQuestionIndex].choices[correctAnswer]) {
         score++;
-        answer.textContent = "Correct!";
+        check.textContent = "Correct!";
     } else {
         seconds -= 10;
         timerEl.textContent = seconds;
-        answer.textContent = "Wrong!"
+        checkEl.textContent = "Wrong!"
     }
     currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
+    if (currentQuestionIndex < quizQuestions.length) {
         nextQuestion();
     } else {
         gameOver();
     }
 }
 
-function chooseA() {
-    check(0);
+function chooseA() { 
+    checkAnswer(0); 
 }
 
-function chooseB() {
-    check(1);
+function chooseB() { 
+    checkAnswer(1); 
 }
 
-function chooseC() {
-    check(2);
+function chooseC() { 
+    checkAnswer(2); 
 }
 
-function chooseD() {
-    check(3);
+function chooseD() { 
+    checkAnswer(3); 
 }
 
 choiceA.addEventListener("click", chooseA);
@@ -150,63 +157,45 @@ choiceB.addEventListener("click", chooseB);
 choiceC.addEventListener("click", chooseC);
    
 choiceD.addEventListener("click", chooseD);
-   
 
-
-
+// To hide the quiz and display the submission page
 function gameOver() {
     quizQuestionDivEl.style.display = "none";
     time.style.display = "none";
     timerEl.style.display = "none";
+    submitEl.style.display = "block";
+    
+    var scoreSpan = document.createElement("span");
+    finalScoreEl.append(scoreSpan);
+    finalScoreEl.append(score);
 }
-// setInterval(function(seconds) {
-//     timerEl.append(interval);
-//     interval--
-//     if (interval === 0) {
-//     console.log("Time's Up!");
+
+// To save the initials to local storage
+// function highScore() {
+//     if(highScoreInitialsEl.value === "") {
+//         alert("Please Enter Initials");
+//         return false;
+//     } else{
+//         var savedHighscores = JSON.parse(localStorage.getItem("savedHighScores")) || [];
+//         var currentUser = highScoreInitialsEl.value.trim();
+//         var currentHighScore = {
+//             initials : currentUser,
+//             score : score.textContent
+//         }
 //     }
 
-// }, 1000);    
+//         savedHighScores.push(currentHighcore);
+//         localStorage.setItem("savedHighScores", JSON.stringify(savedHighScores));
+//         generateHighScores();
+// };
+// initialsSubmitBtnEl.addEventListener("click", highScore);
 
-
-// // To add the score to the page
-// $(document).ready(function() {
-//     $("#score span").text(score);
-// })
-
-
-// // To Loop Through Questions & Answers
-// function generate(currentQuestionIndex) {
-//     for (var i = 0; i < quizQuestions.length; i++) {
-//         currentQuestions.choices;
-//         currentChoices.choices;
-//     }
-
-//     currentChoices.forEach(function(list) {
-//         var choiceList = document.createElement("li");
-//         choiceList.textContent = list;
-//         quizContainer.appendChild(ul)
-//         ul.appendChild(list);
-//         list.on("click", (compare));
-//         })
-//     };
-
-// // To Compare Answers
-//     function compare(e) {
-//     var answer = e.target;
-
-//     if (answer.matches("li")) {
-//         var newDiv = document.createElement("div");
-//     }    
-//         if (answer.textContent === quizQuestions[currentQuestionIndex].answer) {
-//             score++;
-//             newDiv.textContent = "Correct!";
-//     }    
-//         else {
-//                 seconds = seconds - penalty;
-//                 newDiv.textContent = "Wrong!";
-//             }
+// function generateHighScores() {
+//     displayName.innerHTML = "";
+//     displayScore.innerHTML = "";
 // }
 
-
-    
+// To go back to quiz
+backBtnEl.addEventListener("click", function() {
+    document.location.href = "https://timrob584.github.io/code-quiz/";
+});
