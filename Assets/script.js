@@ -110,23 +110,6 @@ function nextQuestion() {
     choiceD.textContent = quizQuestions[currentQuestionIndex].choices[3];
 }
 
-choiceA.addEventListener("click", chooseA);
-    function chooseA() {
-        check(0);
-    }
-choiceB.addEventListener("click", chooseB);
-    function chooseA() {
-        check(1);
-}
-choiceC.addEventListener("click", chooseC);
-    function chooseA() {
-        check(2);
-}
-choiceD.addEventListener("click", chooseD);
-    function chooseA() {
-        check(3);
-}
-
 function check(answer) {
     if (quizQuestions[currentQuestionIndex].correctAnswer === quizQuestions[currentQuestionIndex].choices[answer]) {
         score++;
@@ -143,6 +126,33 @@ function check(answer) {
         gameOver();
     }
 }
+
+function chooseA() {
+    check(0);
+}
+
+function chooseB() {
+    check(1);
+}
+
+function chooseC() {
+    check(2);
+}
+
+function chooseD() {
+    check(3);
+}
+
+choiceA.addEventListener("click", chooseA);
+
+choiceB.addEventListener("click", chooseB);
+   
+choiceC.addEventListener("click", chooseC);
+   
+choiceD.addEventListener("click", chooseD);
+   
+
+
 
 function gameOver() {
     quizQuestionDivEl.style.display = "none";
